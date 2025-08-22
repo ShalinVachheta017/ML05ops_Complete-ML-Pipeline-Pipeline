@@ -75,8 +75,9 @@ def transform_text(text):
     # Tokenize the text into a list of words using nltk's tokenizer
     text = nltk.word_tokenize(text)
     
-    # Filter tokens: keep only alphanumeric words
-    text = [word for word in text if word.isalnum()]
+    # Filter tokens: keep only alphanumeric words 
+    text = [word for word in text if word.isalnum()]  # isalnum() checks if a string contains only alphanumeric characters 
+    # ALPHANUMERIC MEANS LETTERS AND NUMBERS
     
     # Remove stopwords and punctuation from the tokens
     text = [word for word in text if word not in stopwords.words('english') and word not in string.punctuation]
