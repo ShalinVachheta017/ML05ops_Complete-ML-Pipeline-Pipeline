@@ -1,0 +1,8 @@
+[core]
+    remote = dvcstore0
+['remote "local_remote"']
+    url = D:/dvc-storage
+['remote "dvcstore"']
+    url = s3://dvc_yt_s3
+['remote "dvcstore0"']
+    url = s3://dvc-yt-s3
