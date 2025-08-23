@@ -18,7 +18,7 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 import logging
 import yaml
-
+  
 # Ensure the "logs" directory exists for storing log files
 log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)

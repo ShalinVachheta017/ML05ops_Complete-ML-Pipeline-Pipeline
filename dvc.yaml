@@ -9,11 +9,11 @@ stages:
   data_ingestion:
     cmd: python src/data_ingestion.py
     deps:  # dependencies for data_ingestion
-      - src/data_ingestion.py
+    - src/data_ingestion.py
     params:
-      - data_ingestion.test_size
+    - data_ingestion.test_size
     outs:
-      - data/raw
+    - data/raw
 
   # Stage: data_preprocessing
   # Processes the raw data by cleaning and encoding using the preprocessing script.
@@ -22,10 +22,10 @@ stages:
   data_preprocessing:
     cmd: python src/data_preprocessing.py
     deps:
-      - data/raw
-      - src/data_preprocessing.py
+    - data/raw
+    - src/data_preprocessing.py
     outs:
-      - data/interim
+    - data/interim
 
   # Stage: feature_engineering
   # Applies feature engineering (e.g., TF-IDF transformation) on preprocessed data.
@@ -35,12 +35,12 @@ stages:
   feature_engineering:
     cmd: python src/feature_engineering.py
     deps:
-      - data/interim
-      - src/feature_engineering.py
+    - data/interim
+    - src/feature_engineering.py
     params:
-      - feature_engineering.max_features
+    - feature_engineering.max_features
     outs:
-      - data/processed
+    - data/processed
 
   # Stage: model_building
   # Trains a machine learning model using the processed data.
@@ -50,13 +50,13 @@ stages:
   model_building:
     cmd: python src/model_building.py
     deps:
-      - data/processed
-      - src/model_building.py
+    - data/processed
+    - src/model_building.py
     params:
-      - model_building.n_estimators
-      - model_building.random_state
+    - model_building.n_estimators
+    - model_building.random_state
     outs:
-      - models/model.pkl
+    - models/model.pkl
 
   # Stage: model_evaluation
   # Evaluates the trained model using test data and generates evaluation metrics.
@@ -65,15 +65,16 @@ stages:
   model_evaluation:
     cmd: python src/model_evaluation.py
     deps:
-      - models/model.pkl
-      - src/model_evaluation.py
+    - models/model.pkl
+    - src/model_evaluation.py
     metrics:
-      - reports/metrics.json
+    - reports/metrics.json
 
 # Global parameters for the pipeline are defined in this section.
 params:
-  - dvclive/params.yaml
-
-# Global metrics and plots definitions.
+- dvclive/params.yaml
 metrics:
-  - dvclive/metrics.json
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
