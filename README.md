@@ -2,20 +2,9 @@
 
 ## Project Summary
 
-### What is this project?
-This is a learning exercise about organizing the steps of building a machine-learning model.
+Building a machine learning model involves more than training it once. You also need to prepare data and remember which files belong to each experiment. This learning project explores how to put those steps into a repeatable workflow.
 
-### Why is it interesting?
-A model is easier to reproduce when data preparation, training, and files are tracked clearly.
-
-### How does it work?
-The exercise explores a complete ML pipeline and uses DVC with Amazon S3 for keeping track of data and outputs.
-
-### Real-life example
-You run an experiment today and want to know which data and model files were used when you revisit it later.
-
-### What did I learn?
-I practiced connecting ML pipeline steps with data and artifact versioning.
+The project practices organizing a machine learning pipeline and tracking its data and outputs with DVC and cloud storage. For example, when you revisit an experiment, you can look for the data and model version associated with it. I learned why keeping track of project files matters when experiments change.
 
 ---
 
